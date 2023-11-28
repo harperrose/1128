@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { projectData } from "./data.js";
+import './App.css';
 
-const categories = ['All', 'Web', 'Mobile', 'Design', 'Other']; // Add more categories as needel'])tegories
+const categories = ['All', 'Web', 'App', 'Design', 'Other'];
 
 const ProjectList = ({ projects }) => {
   return (
     <ul>
       {projects.map((project) => (
         <li key={project.id}>
-        {project.featured ? (
           <>
             <img
               className="image1"
@@ -25,12 +25,6 @@ const ProjectList = ({ projects }) => {
               <p className="description">{project.description}</p>
             </div>
           </>
-        ) : (
-          <div className="">
-            <h1>{project.name}</h1>
-            <a href={project.link} className="greenlink">Visit the live site</a>
-          </div>
-        )}
       </li>
       ))}
     </ul>
@@ -39,7 +33,7 @@ const ProjectList = ({ projects }) => {
 
 const FilterButton = ({ category, active, onClick }) => {
   const buttonStyle = {
-    backgroundColor: active ? 'blue' : 'gray',
+    backgroundColor: active ? '#1f0' : 'gray',
   };
 
   return (

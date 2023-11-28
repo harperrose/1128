@@ -39,8 +39,7 @@ export const projectData = [{
     name: 'hood </br> midcenturymodern',
     description: 'a privacy respecting featured with breath based animations',
     link: 'https://as-it-is-yoga.webflow.io/',
-    category: 'graphic',
-    
+    category: 'design',
     image1: "/images/aii.webp",
 },{
     id: 6,
