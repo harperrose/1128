@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { projectData } from "./data.js";
 
-const categories = ['All', 'Web', 'Mobile', 'Design', 'Other']; // Add more categories as needed
+const categories = ['All', 'Web', 'Mobile', 'Design', 'Other']; // Add more categories as needel'])tegories
 
 const ProjectList = ({ projects }) => {
   return (
@@ -26,32 +26,12 @@ const FilterButton = ({ category, active, onClick }) => {
 };
 
 const App = () => {
-  const [selectedCategories, setSelectedCategories] = useState(['All']);
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategories((prevCategories) => {
-      if (category === 'All') {
-        // Toggle 'All' category
-        return prevCategories.includes('All') ? [] : ['All'];
-      } else {
-        // Toggle other categories
-        const updatedCategories = prevCategories.includes(category)
-          ? prevCategories.filter((c) => c !== category)
-          : [...prevCategories, category];
-
-        return updatedCategories.length === 0 ? ['All'] : updatedCategories;
-      }
-    });
-  };
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredProjects =
-    selectedCategories.includes('All')
+    selectedCategory === 'All'
       ? projectData
-      : projectData.filter((project) => {
-          return project.categories.some((category) =>
-            selectedCategories.includes(category)
-          );
-        });
+      : projectData.filter((project) => project.category === selectedCategory.toLowerCase());
 
   return (
     <div>
@@ -60,8 +40,8 @@ const App = () => {
           <FilterButton
             key={category}
             category={category}
-            active={selectedCategories.includes(category)}
-            onClick={handleCategoryClick}
+            active={category === selectedCategory}
+            onClick={setSelectedCategory}
           />
         ))}
       </div>
@@ -71,41 +51,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
