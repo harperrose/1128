@@ -3,14 +3,14 @@ export const projectData = [{
     name: 'kikilamb',
     description: 'a website dedicated to dystopia',
     link: 'https://www.cameronsworld.net/',
-    category: 'website',  
+    category: 'web',  
     image1: "/images/baby.jpeg"
 },{
     id:1,
     name: 'Goober',
     description: 'a featured dedicated to dystopia',
     link: 'https://mindyseu.com/',
-    category: 'website',
+    category: 'web',
     image1: "/images/gallery_irl.png"  
 
 },{
@@ -18,21 +18,21 @@ export const projectData = [{
     name: 'As It Is',
     description: 'a privacy respecting featured with breath based animations',
     link: 'https://as-it-is-yoga.webflow.io/',
-    category: 'website',
+    category: 'web',
     image1: "/images/aii.webp",
 }, {
     id: 3,
     name: 'Decadent Identities',
     description: 'a website',
     link: 'https://decadent-identities.webflow.io/',
-    category: 'website',
+    category: 'web',
     image1: "/images/did_d1.webp",
 },{
     id: 4,
     name: 'Debby Friday',
     description: 'a privacy respecting featured with breath based animations',
     link: 'https://as-it-is-yoga.webflow.io/',
-    category: 'website',
+    category: 'web',
     image1: "/images/aii.webp",
 },{
     id: 5,
