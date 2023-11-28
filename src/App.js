@@ -77,7 +77,6 @@ const App = () => {
                alt='Harper Daniel'
              />
             <h1 className='introduction-dd'>Digital Designer</h1>
-
         </div>
          <ProjectList projects={filteredProjects} />
       </div>
