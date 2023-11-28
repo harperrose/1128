@@ -1,68 +1,111 @@
-import React, { useState } from "react";
-import { project, buttons } from './data.js';
-import './App.css';
-import { getProject, filterProject } from "./services";
+import React, { useState } from 'react';
+import { projectData } from "./data.js";
 
-function List({ project }) {
+const categories = ['All', 'Web', 'Mobile', 'Design', 'Other']; // Add more categories as needed
+
+const ProjectList = ({ projects }) => {
   return (
-    <li key={project.id}>
-      {project.featured ? (
-        <>
-          <img
-            className="image1"
-            src={project.image1}
-            alt={project.name}
+    <ul>
+      {projects.map((project) => (
+        <li key={project.id}>{project.name}</li>
+      ))}
+    </ul>
+  );
+};
+
+const FilterButton = ({ category, active, onClick }) => {
+  const buttonStyle = {
+    backgroundColor: active ? 'blue' : 'gray',
+  };
+
+  return (
+    <button style={buttonStyle} onClick={() => onClick(category)}>
+      {category}
+    </button>
+  );
+};
+
+const App = () => {
+  const [selectedCategories, setSelectedCategories] = useState(['All']);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategories((prevCategories) => {
+      if (category === 'All') {
+        // Toggle 'All' category
+        return prevCategories.includes('All') ? [] : ['All'];
+      } else {
+        // Toggle other categories
+        const updatedCategories = prevCategories.includes(category)
+          ? prevCategories.filter((c) => c !== category)
+          : [...prevCategories, category];
+
+        return updatedCategories.length === 0 ? ['All'] : updatedCategories;
+      }
+    });
+  };
+
+  const filteredProjects =
+    selectedCategories.includes('All')
+      ? projectData
+      : projectData.filter((project) => {
+          return project.categories.some((category) =>
+            selectedCategories.includes(category)
+          );
+        });
+
+  return (
+    <div>
+      <div>
+        {categories.map((category) => (
+          <FilterButton
+            key={category}
+            category={category}
+            active={selectedCategories.includes(category)}
+            onClick={handleCategoryClick}
           />
-          <div className="featuredcopy">
-            <div className="featuredstat">
-              <h1>{project.name}</h1>
-              <a href={project.link} className="greenlink">
-                Visit the live site
-              </a>
-            </div>
-            <p className="description">{project.description}</p>
-          </div>
-        </>
-      ) : (
-        <div className="">
-          <h1>{project.name}</h1>
-          <a href={project.link} className="greenlink">Visit the live site</a>
-        </div>
-      )}
-    </li>
-  );
-}
-
-function App() {
-  const [filteredProject, setFilteredProject] = useState([]);
-
-  function handleProject(e) {
-    let typeProject = e.target.value;
-    typeProject !== "all"
-      ? setFilteredProject(filterProject(typeProject))
-      : setFilteredProject(getProject());
-  }
-
-  return (
-    <>
-      <div className="button-wrap">
-        {buttons &&
-          buttons.map((type, index) => (
-            <button key={index} value={type.value} onClick={handleProject}>
-              {type.name}
-            </button>
-          ))}
+        ))}
       </div>
-      <div className="project-wrap">
-        {filteredProject &&
-          filteredProject.map((type) => (
-            <ul key={type.id}>
-              <List project={type} />
-            </ul>
-          ))}
-      </div>
-    </>
+      <ProjectList projects={filteredProjects} />
+    </div>
   );
-}
+};
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

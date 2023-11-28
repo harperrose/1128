@@ -1,0 +1,7 @@
+function getProject() 
+  const projectList = project;
+  return projectList;
+
+
+export default getProject;
+
