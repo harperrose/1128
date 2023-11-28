@@ -12,7 +12,7 @@ const ProjectList = ({ projects }) => {
           <>
             <img
               className="image1"
-              src={project.image1}
+              src={process.env.PUBLIC_URL + '/images/' +project.image1 }
               alt={project.name}
             />
             <div className="featuredcopy">
@@ -25,11 +25,12 @@ const ProjectList = ({ projects }) => {
               <p className="description">{project.description}</p>
             </div>
           </>
-      </li>
+        </li>
       ))}
     </ul>
   );
 };
+
 
 const FilterButton = ({ category, active, onClick }) => {
   const buttonStyle = {
