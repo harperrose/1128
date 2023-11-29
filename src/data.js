@@ -4,7 +4,7 @@ export const projectData = [{
     description: 'An archived dystopian fashion website utilizing an AR enabled 3D model.',
     link: 'https://www.cameronsworld.net/',
     category: 'web',  
-    image1: "baby.jpeg",
+    image1: "kiki_1.webp",
 },{
     id:1,
     name: 'Goober',
@@ -33,27 +33,27 @@ export const projectData = [{
     description: 'An archived hub-style homepage for an artist looking for something that warranted pause.',
     link: 'https://as-it-is-yoga.webflow.io/',
     category: 'web',
-    image1: "/aii.webp",
+    image1: "aii.webp",
 },{
     id: 5,
     name: 'hood midcentury modern',
     description: 'graphics, pitches, and research for architectural cannon expansion media.',
     link: 'https://as-it-is-yoga.webflow.io/',
     category: 'design',
-    image1: "/aii.webp",
+    image1: "aii.webp",
 },{
     id: 6,
     name: 'After Hours',
     description: 'an app connecting restaurant surplus to those in need',
     link: 'https://as-it-is-yoga.webflow.io/',
     category: 'App',
-    image1: "/aii.webp",
+    image1: "af_d1.webp",
 },{
     id: 7,
     name: 'Gallery',
     description: 'a privacy respecting featured with breath based animations',
     link: 'https://as-it-is-yoga.webflow.io/',
     category: 'App',
-    image1: "/gallery_irl.png",
+    image1: "/gallery_d3.webp",
 }, ];
 

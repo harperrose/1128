@@ -16,12 +16,10 @@ const ProjectList = ({ projects }) => {
               alt={project.name}
             />
             <div className="project-copy">
-              <div className="project-copy-left">
                 <h1>{project.name}</h1>
                 <a href={project.link} className="link">
                   Visit the live site
                 </a>
-              </div>
               <p className="project-description">{project.description}</p>
             </div>
           </>
@@ -76,7 +74,11 @@ const App = () => {
                src={process.env.PUBLIC_URL + '/images/logo.png'}
                alt='Harper Daniel'
              />
-            <h1 className='introduction-dd'>Digital Designer</h1>
+             <img
+              className="introduction-dd"
+              src={process.env.PUBLIC_URL + '/images/D_D.svg'}
+              alt='Digital Designer'
+            />
         </div>
          <ProjectList projects={filteredProjects} />
       </div>
