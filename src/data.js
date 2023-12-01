@@ -5,12 +5,13 @@ export const projectData = [{
     link: 'https://www.cameronsworld.net/',
     category: 'web',  
     image1: "kiki_1.webp",
+    image2: "afd2.webp",
 },{
     id:1,
     name: 'Goober',
     description: 'An e-commerce website hosting a digital version of a physical pubication.',
     link: 'https://gooberovereverything.com/',
-    category: ['web', 'App'],
+    category: 'web',
     image1: "gallery_irl.png",
 
 },{
