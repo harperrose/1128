@@ -1,34 +1,11 @@
 import React, { useState } from 'react';
 import { projectData } from "./data.js";
 import './App.css';
+import { ProjectList } from './components/list.jsx';
+import { Navigation } from './components/nav.jsx';
 
-const categories = ['All', 'Web', 'App', 'Design', 'Other'];
 
-const ProjectList = ({ projects }) => {
-  return (
-    <ul>
-      {projects.map((project) => (
-        <li key={project.id}>
-          <>
-            <img
-              className="image1"
-              src={process.env.PUBLIC_URL + '/images/' +project.image1 }
-              alt={project.name}
-            />
-            <div className="project-copy">
-                <h1>{project.name}</h1>
-                <a href={project.link} className="link">
-                  Visit the live site
-                </a>
-              <p className="project-description">{project.description}</p>
-            </div>
-          </>
-        </li>
-      ))}
-    </ul>
-  );
-};
-
+const categories = ['All', 'Web', 'App', 'Design', 'Other']
 
 const FilterButton = ({ category, active, onClick }) => {
   const buttonStyle = {
@@ -54,33 +31,21 @@ const App = () => {
 
   return (
     <div>
-      <div className='nav-panel'>
-        <p className='bio'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
-        <div className='button-wrap'>
-          {categories.map((category) => (
-            <FilterButton
-              key={category}
-              category={category}
-              active={category === selectedCategory}
-              onClick={setSelectedCategory}
-            />
-          ))}
-        </div>
-     </div>
+       <div className='introduction'>
+         <img
+            className="introduction-hd"
+            src={process.env.PUBLIC_URL + '/images/logo.png'}
+            alt='Harper Daniel'
+          />
+          <img
+           className="introduction-dd"
+           src={process.env.PUBLIC_URL + '/images/D_D.svg'}
+           alt='Digital Designer'
+         />
+       </div>
       <div className='project-wrap' >
-        <div className='introduction'>
-            <img
-               className="introduction-hd"
-               src={process.env.PUBLIC_URL + '/images/logo.png'}
-               alt='Harper Daniel'
-             />
-             <img
-              className="introduction-dd"
-              src={process.env.PUBLIC_URL + '/images/D_D.svg'}
-              alt='Digital Designer'
-            />
-        </div>
-         <ProjectList projects={filteredProjects} />
+      <p className='bio show-mobile'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
+       <ProjectList projects={filteredProjects} />
       </div>
     </div>
   );

@@ -1,30 +1,24 @@
-export function List({ project }) {
-    return (
-      <li key={project.id}>
-        {project.featured ? (
+export const ProjectList = ({ projects }) => {
+  return (
+    <ul>
+      {projects.map((project) => (
+        <li key={project.id}>
           <>
             <img
               className="image1"
-              src={project.image1}
+              src={process.env.PUBLIC_URL + '/images/' +project.image1 }
               alt={project.name}
             />
-            <div className="featuredcopy">
-              <div className="featuredstat">
+            <div className="project-copy">
                 <h1>{project.name}</h1>
-                <a href={project.link} className="greenlink">
-                  Visit the live site
-                </a>
-              </div>
-              <p className="description">{project.description}</p>
+              <p className="project-description">{project.description}</p>
+              <a href={project.link} className="link">
+                Visit the live site
+              </a>
             </div>
           </>
-        ) : (
-          <div className="">
-            <h1>{project.name}</h1>
-            <a href={project.link} className="greenlink">Visit the live site</a>
-          </div>
-        )}
-      </li>
-    );
-  }
-  
+        </li>
+      ))}
+    </ul>
+  );
+};
