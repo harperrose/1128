@@ -1,3 +1,5 @@
+import { CaseLink } from './case.jsx';
+
 export const ProjectList = ({ projects }) => {
   return (
     <ul>
@@ -11,10 +13,8 @@ export const ProjectList = ({ projects }) => {
             />
             <div className="project-copy">
                 <h1>{project.name}</h1>
-              <p className="project-description">{project.description}</p>
-              <a href={project.link} className="link">
-                Visit the live site
-              </a>
+                <p className="project-description">{project.description}</p>
+                <CaseLink/>
             </div>
           </>
         </li>

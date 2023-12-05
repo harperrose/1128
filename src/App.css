@@ -51,8 +51,8 @@ button {
 }
 
 .project-wrap {
+  margin-left: 21vw;
   padding: 10px;
-  margin-left: 20vw;
 }
 
 /*introduction elements*/
@@ -153,6 +153,10 @@ button {
     width: 99vw;
   }
 
+  .project-wrap {
+    margin-left: 0;
+    padding: 2px;
+  }
  /*nav panel and buttons*/
   .nav-panel {
     flex-direction: row;
@@ -165,6 +169,7 @@ button {
   }
   .button-wrap {
     flex-direction: row;
+    border-radius: 10px;
   }
 
   /*projects*/
@@ -178,10 +183,15 @@ button {
     margin-left: 0;
   }
 
-  .project-wrap {
-    margin-left: 0;
-    padding: 2px;
+  .project-description {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
+
+
+
+
+
 }
 
 @font-face {

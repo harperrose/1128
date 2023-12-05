@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { projectData } from "./data.js";
 import './App.css';
-import { ProjectList } from './components/list.jsx';
-import { Navigation } from './components/nav.jsx';
-
+import { ProjectList } from './components/list.jsx'
 
 const categories = ['All', 'Web', 'App', 'Design', 'Other']
 
@@ -31,6 +29,21 @@ const App = () => {
 
   return (
     <div>
+      <div className='nav-panel'>
+        <p className='bio hide-mobile'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
+        <div className='button-wrap'>
+          <a href="services.html">About</a>
+          <a href="contact" className='hide-mobile'>Contact</a>
+          {categories.map((category) => (
+            <FilterButton
+              key={category}
+              category={category}
+              active={category === selectedCategory}
+              onClick={setSelectedCategory}
+            />
+          ))}
+        </div>
+     </div>
        <div className='introduction'>
          <img
             className="introduction-hd"
