@@ -1,9 +1,47 @@
 import React, { useState } from 'react';
 import { projectData } from "./data.js";
 import './App.css';
-import { ProjectList } from './components/list.jsx'
+import AnimatedList from "./list.js";
 
 const categories = ['All', 'Web', 'App', 'Design', 'Other']
+
+const Case = ({ project }) => {
+  return (
+    <div>
+      {project.casestudy ? (
+        <a href={project.link} className="case-link">
+          Case Study
+        </a>
+      ) : (
+        <a href={project.link} className="site-link">
+          Live Site
+        </a>
+      )}
+    </div>
+  );
+};
+
+export const ProjectList = ({ projects }) => {
+  return (
+    <ul>
+      {projects.map((project) => (
+        <li key={project.id}>
+          <>
+            <img
+              className="image1"
+              src={process.env.PUBLIC_URL + '/images/' +project.image1 }
+              alt={project.name}
+            />
+            <div className="project-copy">
+                <p className="project-description">{project.description}</p>
+                <Case project={project} />
+            </div>
+          </>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const FilterButton = ({ category, active, onClick }) => {
   const buttonStyle = {
@@ -59,6 +97,7 @@ const App = () => {
       <div className='project-wrap' >
       <p className='bio show-mobile'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
        <ProjectList projects={filteredProjects} />
+        <AnimatedList projects={projectData} />
       </div>
     </div>
   );

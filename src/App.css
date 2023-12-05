@@ -48,6 +48,7 @@ button {
   bottom: 0.5vw;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 }
 
 .project-wrap {
@@ -111,13 +112,24 @@ button {
   justify-content: space-between;
 }
 
-.link {
+.site-link {
+  color: #000;
+  text-align: center;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  padding: 5px;
+  text-decoration: none;
+  text-wrap: nowrap;
+}
+
+.case-link{
   color: #000;
   text-align: center;
   background-color: #1f0;
   border-radius: 10px;
   padding: 5px;
   text-decoration: none;
+  text-wrap: nowrap;
 }
 
 
@@ -126,6 +138,37 @@ button {
   padding: 0;
   box-sizing: inherit;
 }
+
+.accordion-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.accordion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.accordion-item.expanded {
+  transform: scale(1.2);
+}
+
+.accordion-content {
+  flex: 1;
+}
+
+.accordion-image {
+  width: 100%;
+}
+
 
 @media screen and (max-width: 600px) {
   .hide-mobile{
@@ -178,7 +221,11 @@ button {
     align-items: flex-start;
   }
 
-  .link {
+  .site-link {
+    height: 20px;
+    margin-left: 0;
+  }
+  .case-link {
     height: 20px;
     margin-left: 0;
   }
