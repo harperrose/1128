@@ -1,0 +1,29 @@
+.overlay {
+    position: static;
+}
+.overlay-content{
+    border-radius: 5px;
+}
+.overlay-content-page{
+    min-height: 100vh;
+    background-color: antiquewhite;
+    color: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+
+
+.close-button{
+    position: fixed;
+    left: 22vw;
+    top: 10px;
+    background-color: none;
+    width: auto;
+}

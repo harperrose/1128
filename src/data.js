@@ -4,7 +4,7 @@ export const projectData = [{
     description: 'An archived dystopian fashion website utilizing an AR enabled 3D model.',
     link: 'https://www.cameronsworld.net/',
     category: 'web',  
-    casestudy: false,
+    casestudy: true,
     image1: "kiki_1.webp",
     image2: "afd2.webp",
 },{
@@ -61,8 +61,10 @@ export const projectData = [{
     name: 'Gallery',
     description: 'a privacy respecting featured with breath based animations',
     link: 'https://as-it-is-yoga.webflow.io/',
-    casestudy: false,
+    casestudy: true,
     category: 'App',
     image1: "/gallery_d3.webp",
+    research1: 'These studies were conducted before and after prototypes in the format of guided and remote surveys.',
+    research2: 'In regard to our first prototype: 3 out of 5 people stated they wished there was more information available on the artist featured. 4 out of 5 missed a gallery introduction, something like an about page. Only immediately relevant information is available on the app as is.',
 }, ];
 

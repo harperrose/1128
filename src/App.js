@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { projectData } from "./data.js";
 import './styles/App.css';
 import './styles/AnimatedImageList.css';
+import './styles/Overlay.css';
 import AnimatedList from "./components/AnimatedImageList.js";
 import NavPanel from './components/NavPanel';
 import Introduction from './components/Introduction';
