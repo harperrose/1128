@@ -141,9 +141,11 @@ button {
   align-items: center;
   border-top: solid black 1px;
   text-decoration: none;
+  overflow-y: hidden;
 }
 .animated-list-image {
-  max-width: 200px;
+  max-width: 50vw;
+  max-height: 200px;
 
 }
 *, *::before, *::after {
