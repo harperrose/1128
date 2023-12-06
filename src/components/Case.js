@@ -1,12 +1,16 @@
-import React from 'react';
+const Case = ({ project, onCaseStudyClick }) => {
+  const handleCaseStudyClick = () => {
+    if (project.casestudy) {
+      onCaseStudyClick();
+    }
+  };
 
-const Case = ({ project }) => {
   return (
     <div>
       {project.casestudy ? (
-        <a href={project.link} className="case-link">
+        <span className="case-link" onClick={handleCaseStudyClick}>
           Case Study
-        </a>
+        </span>
       ) : (
         <a href={project.link} className="site-link">
           Live Site
