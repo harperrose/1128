@@ -20,8 +20,8 @@ const App = () => {
       <Introduction />
       <div className='project-wrap'>
         <p className='bio show-mobile'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
-        <ProjectList projects={filteredProjects} />
         <AnimatedList projects={projectData} />
+        <ProjectList projects={filteredProjects} />
       </div>
     </div>
   );
