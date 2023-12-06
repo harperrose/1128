@@ -10,6 +10,13 @@ h1{
   line-height: 18pt;
 }
 
+h3{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 11pt;
+  line-height: 11pt;
+}
+
 ul {
   list-style: none;
   padding: 10px;
@@ -31,7 +38,7 @@ button {
   display: none;
 }
 
-/* layout elements*/
+/* layout elements layout elements layout elements layout elements layout elements*/
 
 .nav-panel {
    position: fixed;
@@ -53,10 +60,9 @@ button {
 
 .project-wrap {
   margin-left: 21vw;
-  padding: 10px;
 }
 
-/*introduction elements*/
+/*introduction elements introduction elements introduction elements introduction elements*/
 
 .introduction{
   position: relative;
@@ -132,7 +138,13 @@ button {
   text-wrap: nowrap;
 }
 
-/* animated list*/
+/* contact elements contact elements contact elements contact elements*/
+
+#contact{
+  background: radial-gradient(#1f0, #fff7e5);
+  height: 100vh;
+}
+
 .animated-list-item{
   width: 80vw;
   display: flex;
@@ -143,18 +155,17 @@ button {
   text-decoration: none;
   overflow-y: hidden;
 }
+
 .animated-list-image {
   max-width: 50vw;
-  max-height: 200px;
-
+  padding-right: 60px;
 }
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-
-
 
 @media screen and (max-width: 600px) {
   .hide-mobile{
