@@ -23,6 +23,7 @@ const App = () => {
         <p className='bio show-mobile'>Harper Daniel is a freelance digital designer and developer who values accessibility and general goodness. <a href={process.env.PUBLIC_URL + '/pages/services.html'}>Learn more about what she offers.</a></p>
         <ProjectList projects={filteredProjects} />
         <AnimatedList projects={projectData} />
+
         <section id='contact'>
           <a href="https://www.instagram.com/harper__daniel/" target='blank'>Instagram</a>
           <a href="mailto:harperrdaniel@gmail.com">Email</a>
