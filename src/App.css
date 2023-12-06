@@ -140,6 +140,7 @@ button {
   justify-content: space-between;
   align-items: center;
   border-top: solid black 1px;
+  text-decoration: none;
 }
 .animated-list-image {
   max-width: 200px;
