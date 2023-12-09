@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
+import { servicesData } from '../ServicesData';
 
-const AnimatedListItem = ({ project }) => {
+const AnimatedListItem = ({ service }) => {
   const ref = useRef();
 
   const [animationProps, set] = useSpring(() => ({
-    imageSize: 100,
     itemHeight: 100,
-    blur: 20,
   }));
 
   const handleScroll = useCallback(() => {
@@ -22,23 +21,17 @@ const AnimatedListItem = ({ project }) => {
     if (scrollPosition >= startAnimationPosition && scrollPosition <= halfwayAnimationPosition) {
       // 0% - 25%
       set({
-        imageSize: 100,
         itemHeight: 100,
-        blur: 20,
       });
     } else if (scrollPosition > halfwayAnimationPosition && scrollPosition <= endAnimationPosition) {
       // 40% - 50%
       set({
-        imageSize: 200,
         itemHeight: 200,
-        blur: 0,
       });
     } else if (scrollPosition > endAnimationPosition) {
       // 54% - 75%
       set({
-        imageSize: 100,
         itemHeight: 100,
-        blur: 20,
       });
     }
   }, [set]);
@@ -60,30 +53,22 @@ const AnimatedListItem = ({ project }) => {
         overflow: 'hidden',
       }}
     >
-      <a href={project.link} className="animated-list-item">
-        <h3>{project.name}</h3>
-        <animated.img
-          className="animated-list-image"
-          style={{
-            filter: animationProps.blur.interpolate((b) => `blur(${b}px)`),
-            height: animationProps.imageSize.interpolate((h) => `${h}px`),
-          }}
-          src={process.env.PUBLIC_URL + '/images/' + project.image1}
-          alt={project.name}
-        />
+      <a href={`/services/${service.id}`} className="animated-list-item">
+        <h3>{service.name}</h3>
+        <p>{service.description}</p>
       </a>
     </animated.li>
   );
 };
 
-const AnimatedList = ({ projects }) => {
+const AnimatedServiceList = () => {
   return (
     <ul className="animated-list">
-      {projects.map((project) => (
-        <AnimatedListItem key={project.id} project={project} />
+      {servicesData.map((service) => (
+        <AnimatedListItem key={service.id} service={service} />
       ))}
     </ul>
   );
 };
 
-export default AnimatedList;
+export default AnimatedServiceList;

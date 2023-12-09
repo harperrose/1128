@@ -1,25 +1,25 @@
 .overlay {
     position: static;
 }
-.overlay-content{
-    border-radius: 5px;
-}
 .overlay-content-page{
-    min-height: 100vh;
-    background-color: antiquewhite;
-    color: blueviolet;
+    background-color: #fff7e5;
 }
 
-
-
-
-
-
-
-
-
-
-
+.overlay-content {
+    width: 78.9vw;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen to the right */
+    z-index: 2;
+    transition: right 0.5s ease-in-out; /* Add a transition effect */
+  
+    &.slide-in {
+      right: 0; /* Slide in to the right when the class is applied */
+    }   
+}     
 .close-button{
     position: fixed;
     left: 22vw;
@@ -27,3 +27,28 @@
     background-color: none;
     width: auto;
 }
+
+.horizontal-scroll-gallery{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 80vw;
+    align-items: baseline;
+}
+
+.prototype-gallery-images{
+    width: 70vw;
+}
+
+.gallery-item{
+    margin-right: 10px;
+}
+
+.image2{
+    background-color: azure;
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+}
+

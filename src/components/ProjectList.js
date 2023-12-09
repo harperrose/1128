@@ -23,7 +23,7 @@ export const ProjectList = ({ projects }) => {
             <img
               className="image1"
               src={process.env.PUBLIC_URL + '/images/' + project.image1}
-              alt={project.name}
+              alt={project.image1alt}
             />
             <div className="project-copy">
               <p className="project-description">{project.description}</p>

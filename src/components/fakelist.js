@@ -1,66 +1,43 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
+import AnimatedList from './AnimatedImageList.js';
+import { projectData } from "../../data.js";
+import PrototypeGalleryItem from './PrototypeGalleryItem.jsx';
+import FinalGalleryItem from './FinalGallery.jsx';
+import LaunchGalleryItem from './LaunchGallery.jsx';
+import Contact from '../contact.jsx';
+import './AnimatedImageList.css';
 
-const AnimatedListItem = ({ project }) => {
-  const ref = useRef();
-
-  const [animationProps, set] = useSpring(() => ({
-    height: '100px',
-    blur: 30,
-  }));
-  
-  const handleScroll = useCallback(() => {
-    const rect = ref.current.getBoundingClientRect();
-    const scrollPosition = window.scrollY || window.pageYOffset;
-    const viewportHeight = window.innerHeight;
-    const fiftyPercentPoint = viewportHeight * 0.5;
-    const seventyFivePercentPoint = viewportHeight * 0.75;
-  
-    const isInsideRange = scrollPosition >= rect.top + fiftyPercentPoint && scrollPosition <= rect.top + seventyFivePercentPoint;
-  
-    if (scrollPosition >= rect.top && scrollPosition <= rect.bottom) {
-      set((prev) => ({
-        height: isInsideRange ? '200px' : '100px',
-        blur: isInsideRange ? 0 : 30,
-      }));
-    }
-  }, [set]);
-  
+const ProjectOverlay = ({ project, onClose }) => {
+  const overlayAnimation = useSpring({
+    from: { right: '-100%' },
+    to: { right: '0%' },
+  });
 
   useEffect(() => {
-    handleScroll(); // Initial check
-    window.addEventListener('scroll', handleScroll);
+    // Disable scrolling on the main page when the overlay is open
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      // Enable scrolling when the overlay is closed
+      document.body.style.overflow = 'visible';
     };
-  }, [handleScroll]);
+  }, []);
 
   return (
-    <animated.li ref={ref} style={{ height: animationProps.height, overflow: 'hidden' }}>
-      <a href= "{project.link}"  className="animated-list-item">
-         <h2>{project.name}</h2>
-        <animated.img
-          className="animated-list-image"
-          style={{
-            filter: animationProps.blur.interpolate((b) => `blur(${b}px)`),
-          }}
-          src={process.env.PUBLIC_URL + '/images/' + project.image1}
-          alt={project.name}
-        />
-      </a>
-    </animated.li>
+    <animated.div style={overlayAnimation} className="overlay">
+      <div className="overlay-content">
+        <button onClick={onClose} className="close-button">
+          Close
+        </button>
+        <div className="overlay-content-page">
+          {/* ... rest of your content ... */}
+          <AnimatedList projects={projectData} />
+          <Contact />
+        </div>
+      </div>
+    </animated.div>
   );
 };
 
-const AnimatedList = ({ projects }) => {
-  return (
-    <ul className="animated-list">
-      {projects.map((project) => (
-        <AnimatedListItem key={project.id} project={project} />
-      ))}
-    </ul>
-  );
-};
-
-export default AnimatedList;
+export default ProjectOverlay;

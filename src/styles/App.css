@@ -13,8 +13,6 @@ h1{
 h3{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 200;
-  font-size: 11pt;
-  line-height: 11pt;
 }
 
 ul {
@@ -34,6 +32,14 @@ button {
   width: 100%;
 }
 
+section{
+  border-top: solid black 1px;
+  padding: 5px;
+}
+
+img{
+  max-width: 80vw;
+}
 .show-mobile{
   display: none;
 }
@@ -126,6 +132,7 @@ button {
   padding: 5px;
   text-decoration: none;
   text-wrap: nowrap;
+  cursor: pointer;
 }
 
 .case-link{
@@ -136,6 +143,7 @@ button {
   padding: 5px;
   text-decoration: none;
   text-wrap: nowrap;
+  cursor: pointer;
 }
 
 /* contact elements contact elements contact elements contact elements*/
@@ -143,22 +151,6 @@ button {
 #contact{
   background: radial-gradient(#1f0, #fff7e5);
   height: 100vh;
-}
-
-.animated-list-item{
-  width: 80vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-top: solid black 1px;
-  text-decoration: none;
-  overflow-y: hidden;
-}
-
-.animated-list-image {
-  max-width: 50vw;
-  padding-right: 60px;
 }
 
 *, *::before, *::after {
