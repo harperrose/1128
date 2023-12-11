@@ -82,7 +82,7 @@ export const projectData = [{
     id: 4,
     name: 'Debby Friday',
     description: 'An archived hub-style homepage for an artist looking for something that warranted pause.',
-    link: 'https://as-it-is-yoga.webflow.io/',
+    link: '',
     casestudy: false,
     category: 'web',
     image1: "aii.webp",
@@ -178,5 +178,14 @@ export const projectData = [{
         },
     ],
 
-}, ];
+},{
+    id: 8,
+    name: 'Chaz',
+    description: 'the first website i ever made',
+    link: 'https://chaz-bed585.webflow.io/',
+    casestudy: false,
+    category: 'Website',
+    image1: "cz_irl.webp",
+    image1alt:'',
+} ];
 
